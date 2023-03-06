@@ -6,7 +6,7 @@
 			<h1>Danh Sách Sản Phẩm</h1>
 			<nav>
 				<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="?r=/">Home</a></li>
 				<li class="breadcrumb-item active">Danh Sách Sản Phẩm</li>
 				</ol>
 			</nav>

@@ -1,12 +1,14 @@
 <?php
 require_once('configs/database.php');
 require_once('models/User.php');
+require_once('controllers/ImageController.php');
 
 class AccountController{
     private $model;
     function __construct(){
         global $pdo;
        $this->model = new User($pdo);
+       $this->img = new ImageController();
     }
 
     function login(){
@@ -41,58 +43,25 @@ class AccountController{
         header('Location: ?r=/');
     }
     function edituser(){
-        session_start();
-        $filename = "assets/img/avata/".$_SESSION['avata'];
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $id = $_GET['id'];
-            if($_FILES["image"]["error"] === 4){
-              echo
-              "<script> alert('Image Does Not Exist'); </script>"
-              ;
-            }
-            else{
-              $fileName = $_FILES["image"]["name"];
-              $fileSize = $_FILES["image"]["size"];
-              $tmpName = $_FILES["image"]["tmp_name"];
-          
-              $validImageExtension = ['jpg', 'jpeg', 'png'];
-              $imageExtension = explode('.', $fileName);
-              $imageExtension = strtolower(end($imageExtension));
-              if ( !in_array($imageExtension, $validImageExtension) ){
-                echo
-                "
-                <script>
-                  alert('Invalid Image Extension');
-                </script>
-                ";
-              }
-              else if($fileSize > 10000000){
-                echo
-                "
-                <script>
-                  alert('Image Size Is Too Large');
-                </script>
-                ";
-              }
-              else{
-                $newImageName = uniqid();
-                $newImageName .= '.' . $imageExtension;
-                move_uploaded_file($tmpName, 'assets/img/avata/' . $newImageName);
-                $isUpdate = $this->model->edituser($id, $newImageName);
-                if($isUpdate){
-                    if(file_exists($filename) && $filename != 'assets/img/avata/defaut_avata.png')
-                    {
-                        unlink($filename);
-                    }
-                    header('Location: ?r=/');
-                    $_SESSION['avata'] = $newImageName;
-                }else{
-                    echo "ERROR UPDATE USER!!";
-                }
-              }
-            }
+      session_start();
+      $filename = "assets/img/avata/".$_SESSION['avata'];
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $id = $_GET['id'];
+        $newImageName = $this->img->uploadImage($_FILES["image"], 'assets/img/avata/');
+        $isUpdate = $this->model->edituser($id, $newImageName);
+        if($isUpdate){
+          if(file_exists($filename) && $filename != 'assets/img/avata/defaut_avata.png'){
+            unlink($filename);
           }
+          header('Location: ?r=/');
+          $_SESSION['avata'] = $newImageName;
+        }else{
+          echo "ERROR UPDATE USER!!";
+        }
+      }
+      else{
         require_once('views/account/edituser.php');
+      }
     }
-}
+  }
 ?>
