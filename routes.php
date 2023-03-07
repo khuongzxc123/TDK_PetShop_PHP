@@ -6,6 +6,10 @@ $routes = [
         'controller' => 'HomeController',
         'action' => 'index'
     ],
+    'register' => [
+        'controller' => 'AccountController',
+        'action' => 'register'
+    ],
     'login' => [
         'controller' => 'AccountController',
         'action' => 'login'

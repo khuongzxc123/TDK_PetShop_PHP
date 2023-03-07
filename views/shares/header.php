@@ -71,7 +71,7 @@
           
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6><?php echo $_SESSION['userName']; ?></h6>
+              <h6><?php echo $_SESSION['fullName']; ?></h6>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -111,7 +111,10 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
+      <?php 
+          if(isset($_SESSION['roleId'])){
+          if($_SESSION['roleId']==1){ 
+      ?>
       <li class="nav-item">
         <a class="nav-link" href="?r=themsanpham" id="dangky">
           <i class="bi bi-journal-text"></i>
@@ -123,5 +126,6 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>Danh Sách Sản Phẩm</span>
         </a>
       </li>
+      <?php }} ?>
     </ul>
   </aside><!-- End Sidebar-->

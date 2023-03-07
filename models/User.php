@@ -15,13 +15,21 @@
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
-        function edituser($id, $temp){
-            $sql = "UPDATE user SET Avata=:temp WHERE Id=:id" ;
+        function edituser($id, $temp, $fullname){
+            $sql = "UPDATE user SET Avata=:temp,FullName=:fullname WHERE Id=:id" ;
             $stmt = $this -> db -> prepare($sql);
             return $stmt -> execute(array(
             ':temp' => $temp,
-            ':id' => $id
+            ':id' => $id,
+            ':fullname' => $fullname
         ));
+        }
+        function addUser($username, $hashPass){
+            $stmt = $this -> db -> prepare("INSERT INTO user(UserName,Pass) VALUES (:username,:pass)");
+            return $stmt -> execute(array(
+                ':username' => $username,
+                ':pass' => $hashPass,
+            ));
         }
     }
 ?>

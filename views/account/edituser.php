@@ -22,6 +22,10 @@
                   <p>ID</p>
                   <input type="text" class="form-control" value="<?php echo $_SESSION['userId'] ?>" disabled>
                 </div><br>
+                <div class="col-md-5">
+                  <p>Full Name</p>
+                  <input type="text" class="form-control" value="<?php echo $_SESSION['fullName'] ?>" name="fullname">
+                </div>
                 <div class="col-md-9">
                 <p>Avata</p>
                 <img src="assets/img/avata/<?php echo $_SESSION['avata'] ?>" style="width: 200px; height: 200px">
