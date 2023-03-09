@@ -42,7 +42,9 @@ class AccountController{
     }
     function logout(){
         session_destroy();
-        header('Location: ?r=/');
+        echo "<script>alert('Logout Success!');</script>";
+        Header("Refresh: 0; url='?r=/'");
+        // header('Location: ?r=/');
     }
     function edituser(){
       session_start();
@@ -109,6 +111,11 @@ class AccountController{
       else{
           require_once('views/account/register.php');
       }
-  }       
+   }
+   function danhsachAccount(){
+    $danhsachAccount = $this->model->getAllAccount();
+    require_once('views/account/danhsachaccount.php');
+   }
+
   }
 ?>

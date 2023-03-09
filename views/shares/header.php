@@ -122,9 +122,21 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="?r=danhsachsanpham" id="danhsach">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Danh Sách Sản Phẩm</span>
+        <a class="nav-link collapsed" data-bs-target="#danhSach" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Danh Sách</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="danhSach" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="?r=danhsachsanpham" id="danhsachProduct">
+              <i class="bi bi-circle"></i><span>Sản Phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="?r=danhsachAccount" id="danhsachAccount">
+              <i class="bi bi-circle"></i><span>Tài Khoản</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <?php }} ?>
     </ul>

@@ -31,5 +31,11 @@
                 ':pass' => $hashPass,
             ));
         }
+        function getAllAccount(){
+            $stmt = $this->db->prepare("select * from user");
+            $stmt->execute();
+            $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $danhSach;
+        }
     }
 ?>

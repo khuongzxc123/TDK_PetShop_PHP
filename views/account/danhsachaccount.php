@@ -7,7 +7,7 @@
 			<nav>
 				<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="?r=/">Home</a></li>
-				<li class="breadcrumb-item active">Danh Sách Sản Phẩm</li>
+				<li class="breadcrumb-item active">Danh Sách Account</li>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
@@ -18,25 +18,20 @@
               <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Tên Sản Phẩm</th>
-                <th scope="col">Giá</th>
-                <th scope="col">Số Lượng</th>
-                <th scope="col">Đơn Vị</th>
-                <th scope="col">Hình Ảnh</th>
-                <th scope="col">Settings</th>
+                <th scope="col">Username</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Avata</th>
               </tr>
               </thead>
               <tbody>
               <?php
-                foreach($danhSachSanPham as $item){
+                foreach($danhsachAccount as $item){
                   echo "<tr>";
                   echo "<th scope='row'>".$item['Id']."</th>";
-                  echo "<td scope='row'>".$item['Name']."</td>";
-                  echo "<td scope='row'>".$item['Price']."</td>";
-                  echo "<td scope='row'>".$item['Quantity']."</td>";
-                  echo "<td scope='row'>".$item['Unit']."</td>";
-                  echo "<td scope='row'><img src='assets/img/products/".$item['Image']."' style='width: 70px; height: 70px'></td>";
-                  echo "<td><a href='?r=editsanpham&id=".$item['Id']."'>EDIT</a></td>";
+                  echo "<td scope='row'>".$item['UserName']."</td>";
+                  echo "<td scope='row'>".$item['FullName']."</td>";
+                  echo "<td scope='row'><img src='assets/img/avata/".$item['Avata']."' style='width: 70px; height: 70px'></td>";
+                //   echo "<td><a href='?r=sua&id=".$item['Id']."'>EDIT</a></td>";
                   echo "</tr>";
                 }
                 

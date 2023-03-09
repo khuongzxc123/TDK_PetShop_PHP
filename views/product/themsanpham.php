@@ -14,14 +14,19 @@
 		</div>
 
     <form class="row g-3" method="post" action="?r=themsanpham" autocomplete="off" enctype="multipart/form-data"> 
-                <div class="col-md-5">
+                <div class="col-md-4">
                   <p>Tên Sản Phẩm</p>
                   <input type="text" name="name" id = "name" class="form-control" required>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                   <p>Giá(VND)</p>
-                  <input type="number" name="gia" id = "gia" min="1000" required>
-                </div><br>
+                  <input type="number" name="gia" id = "gia" min="1000" class="form-control" required>
+                </div>
+                <div class="col-md-1">
+                  <p>Đơn Vị</p>
+                  <input type="text" name="donvi" id = "donvi" class="form-control" required>
+                </div>
+                <br>
                 <div class="col-md-9">
                 <p>Hình Ảnh</p>
                 <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value="">

@@ -29,9 +29,19 @@ $routes = [
         'action' => 'themsanpham',
         'middleware' => 'auth'
     ],
+    'editsanpham' => [
+        'controller' => 'ProductController',
+        'action' => 'editsanpham',
+        'middleware' => 'auth'
+    ],
     'danhsachsanpham' => [
         'controller' => 'ProductController',
         'action' => 'danhsachsanpham',
+        'middleware' => 'auth'
+    ],
+    'danhsachAccount' => [
+        'controller' => 'AccountController',
+        'action' => 'danhsachAccount',
         'middleware' => 'auth'
     ]
 ];
