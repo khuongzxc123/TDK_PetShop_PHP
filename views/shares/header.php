@@ -55,6 +55,10 @@
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
+    <div class="icon" >
+        <a href="?r=viewCart" class="bi bi-basket-fill" ></a>
+    </div>
+    
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">

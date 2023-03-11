@@ -43,6 +43,23 @@ $routes = [
         'controller' => 'AccountController',
         'action' => 'danhsachAccount',
         'middleware' => 'auth'
+    ],
+    'addCart' => [
+        'controller' => 'CartController',
+        'action' => 'addCart'
+    ],
+    'delCart' => [
+        'controller' => 'CartController',
+        'action' => 'delCart'
+    ],
+    'viewCart' => [
+        'controller' => 'CartController',
+        'action' => 'viewCart'
+    ],
+    'thanhtoan' => [
+        'controller' => 'HoaDonController',
+        'action' => 'thanhtoan',
+        'middleware' => 'auth'
     ]
 ];
 ?>

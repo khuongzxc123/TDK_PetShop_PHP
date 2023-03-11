@@ -18,6 +18,7 @@
   <div class="row">
   <?php foreach($sanPham as $item){ ?>
   <div class="col-xs-4 col-md-4">
+    <form action="?r=addCart" method="post">
       <div class="prod-info-main prod-wrap clearfix">
           <div class="row">
             <div class="col-md-7 col-sm-12 col-xs-12" >
@@ -31,20 +32,26 @@
                 <p class="price-container"><span><?php echo $item['Price'] ?> VND</span></p>
                 <span class="tag1"></span>
               </div>
-            <div class="description">
-                <p>A Short product description here</p>
+              <div class="description">
+              <input type="number" name="soluong" id = "soluong" min="0" class="form-control" required>
               </div>
               <div class="product-info smart-form">
                 <div class="row">
               <div class="col-md-12">
-              <a href="#" class="btn btn-danger">Add to cart</a>
+              <input type="hidden" value="<?php echo $item['Id'] ?>" name="id">
+              <input type="hidden" value="<?php echo $item['Name'] ?>" name="name">
+              <input type="hidden" value="<?php echo $item['Price'] ?>" name="price">
+              <input type="hidden" value="<?php echo $item['Image'] ?>" name="image">
+              <button type="submit" class="btn btn-danger">Add to cart</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> 
-  </div><?php } ?>
+    </div>
+    </form> 
+  </div>
+  <?php } ?>
   </div>
 </div>
 </main>
