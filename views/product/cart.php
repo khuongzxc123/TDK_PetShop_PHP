@@ -16,9 +16,9 @@
       <div class="card-body">
           <h5 class="card-title">Giỏ Hàng</h5>
             <?php
-          
+                $tong = 0;
                 if(isset($_SESSION['giohang']) && count($_SESSION['giohang'])>0){
-                    $tong = 0;
+                    
             ?>
                 <table class="table table-striped">
                     <thead>
