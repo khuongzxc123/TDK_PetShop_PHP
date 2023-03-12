@@ -42,8 +42,7 @@ include_once('views/shares/header.php');
       </table>
       <div class="text-end ">
         <p>
-        <h3>Tổng: </h3>
-        <h2 class="fw-bold">
+        <h2 class="fw-bold">Tổng: 
           <?php echo currency_format($tong); ?>
         </h2>
         </p>
