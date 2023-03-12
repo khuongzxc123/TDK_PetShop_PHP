@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +38,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -55,55 +58,61 @@
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
-    <div class="icon" >
-        <a href="?r=viewCart" class="bi bi-basket-fill" ></a>
+    <div class="icon">
+      <a href="?r=viewCart" class="bi bi-basket-fill"></a>
     </div>
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        <?php 
-            if(isset($_SESSION['userName'])){
+        <?php
+        if (isset($_SESSION['userName'])) {
 
-        ?>
-        <li class="nav-item dropdown pe-3">
+          ?>
+          <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/avata/<?php echo $_SESSION['avata']; ?>" alt="Profile" class="rounded-circle" style="width: 36px; height: 36px">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['userName']; ?></span>
-          </a><!-- End Profile Iamge Icon -->
-          
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6><?php echo $_SESSION['fullName']; ?></h6>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+              <img src="assets/img/avata/<?php echo $_SESSION['avata']; ?>" alt="Profile" class="rounded-circle"
+                style="width: 36px; height: 36px">
+              <span class="d-none d-md-block dropdown-toggle ps-2">
+                <?php echo $_SESSION['userName']; ?>
+              </span>
+            </a><!-- End Profile Iamge Icon -->
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="?r=edituser">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="?r=logout">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-          </ul><!-- End Profile Dropdown Items -->
-        </li>
-        <?php 
-            }else{
-        ?>
-          <a href="?r=login" style="margin-right: 20px;"><button type="button" class="btn btn-primary rounded-pill">Login</button></a>
-        <?php       
-            }
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li class="dropdown-header">
+                <h6>
+                  <?php echo $_SESSION['fullName']; ?>
+                </h6>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="?r=edituser">
+                  <i class="bi bi-person"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="?r=logout">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+                </a>
+              </li>
+            </ul><!-- End Profile Dropdown Items -->
+          </li>
+        <?php
+        } else {
+          ?>
+          <a href="?r=login" style="margin-right: 20px;"><button type="button"
+              class="btn btn-primary rounded-pill">Login</button></a>
+        <?php
+        }
         ?><!-- End Profile Nav -->
 
       </ul>
@@ -115,33 +124,40 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-      <?php 
-          if(isset($_SESSION['roleId'])){
-          if($_SESSION['roleId']==1){ 
-      ?>
-      <li class="nav-item">
-        <a class="nav-link" href="?r=themsanpham" id="dangky">
-          <i class="bi bi-journal-text"></i>
-          <span>Thêm sản phẩm</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#danhSach" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Danh Sách</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="danhSach" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <?php
+      if (isset($_SESSION['roleId'])) {
+        if ($_SESSION['roleId'] == 1) {
+          ?>
           <li class="nav-item">
-            <a class="nav-link collapsed" href="?r=danhsachsanpham" id="danhsachProduct">
-              <i class="bi bi-circle"></i><span>Sản Phẩm</span>
+            <a class="nav-link" href="?r=themsanpham" id="dangky">
+              <i class="bi bi-journal-text"></i>
+              <span>Thêm sản phẩm</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link collapsed" href="?r=danhsachAccount" id="danhsachAccount">
-              <i class="bi bi-circle"></i><span>Tài Khoản</span>
+            <a class="nav-link collapsed" data-bs-target="#danhSach" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>Danh Sách</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="danhSach" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="?r=danhsachsanpham" id="danhsachProduct">
+                  <i class="bi bi-circle"></i><span>Sản Phẩm</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="?r=danhsachAccount" id="danhsachAccount">
+                  <i class="bi bi-circle"></i><span>Tài Khoản</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?r=hoadon" id="hoadon">
+              <i class="bi bi-journal-text"></i>
+              <span>Danh Sách Hóa Đơn</span>
             </a>
           </li>
-        </ul>
-      </li>
-      <?php }} ?>
+        <?php }
+      } ?>
     </ul>
   </aside><!-- End Sidebar-->

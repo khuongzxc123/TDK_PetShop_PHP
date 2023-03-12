@@ -1,6 +1,6 @@
 <!-- Đường dẫn -->
 
-<?php 
+<?php
 $routes = [
     '/' => [
         'controller' => 'HomeController',
@@ -59,6 +59,16 @@ $routes = [
     'thanhtoan' => [
         'controller' => 'HoaDonController',
         'action' => 'thanhtoan',
+        'middleware' => 'auth'
+    ],
+    'hoadon' => [
+        'controller' => 'HoaDonController',
+        'action' => 'hoadon',
+        'middleware' => 'auth'
+    ],
+    'chitiethoadon' => [
+        'controller' => 'HoaDonController',
+        'action' => 'chitiethoadon',
         'middleware' => 'auth'
     ]
 ];
