@@ -32,14 +32,13 @@ include_once('views/shares/header.php');
             echo "<tr>";
             echo "<th scope='row'>" . $item['Id'] . "</th>";
             echo "<td scope='row'>" . $item['Name'] . "</td>";
-            echo "<td scope='row'>" . $item['Price'] . "</td>";
+            echo "<td scope='row'>" . currency_format($item['Price']) . "</td>";
             echo "<td scope='row'>" . $item['Quantity'] . "</td>";
             echo "<td scope='row'>" . $item['Unit'] . "</td>";
             echo "<td scope='row'><img src='assets/img/products/" . $item['Image'] . "' style='width: 70px; height: 70px'></td>";
             echo "<td><a href='?r=editsanpham&id=" . $item['Id'] . "'>EDIT</a></td>";
             echo "</tr>";
           }
-
           ?>
       </table>
       <div class="text-center">

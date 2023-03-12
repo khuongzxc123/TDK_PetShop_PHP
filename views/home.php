@@ -32,7 +32,7 @@ include_once('views/shares/header.php');
                         <?php echo $item['Name'] ?>
                       </a></h5>
                     <p class="price-container"><span>
-                        <?php echo $item['Price'] ?>
+                        <?php echo currency_format($item['Price']); ?>
                       </span></p>
                     <p>Sl tồn:
                       <?php echo $item['Quantity']; ?>

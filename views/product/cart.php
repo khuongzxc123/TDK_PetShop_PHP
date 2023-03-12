@@ -37,9 +37,9 @@ session_start();
 
                             echo "<tr>";
                             echo "<th scope='row'>" . $item[1] . "</th>";
-                            echo "<td scope='row'>" . $item[2] . "</td>";
+                            echo "<td scope='row'>" . currency_format($item[2]) . "</td>";
                             echo "<td scope='row'>" . $item[3] . "</td>";
-                            echo "<td scope='row'>" . $item[3] * $item[2] . "</td>";
+                            echo "<td scope='row'>" . currency_format($item[3] * $item[2]) . "</td>";
                             echo "<td scope='row'><img src='assets/img/products/" . $item[4] . "' style='width: 70px; height: 70px'></td>";
                             echo "<td><a href='?r=delCart&id=" . $item[0] . "'>Xóa</a></td>";
                             echo "</tr>";
@@ -52,7 +52,7 @@ session_start();
                     <p>
                     <h3>Thành Tiền: </h3>
                     <h2 class="fw-bold">
-                        <?php echo $tong . " VND"; ?>
+                        <?php echo currency_format($tong); ?>
                     </h2>
                     </p>
                 </div>

@@ -32,7 +32,7 @@ include_once('views/shares/header.php');
             echo "<th scope='row'>" . $item['Id'] . "</th>";
             echo "<td scope='row'>" . $item['FullName'] . "</td>";
             echo "<td scope='row'>" . $item['Day'] . "</td>";
-            echo "<td scope='row'>" . $item['Total'] . "</td>";
+            echo "<td scope='row'>" . currency_format($item['Total']) . "</td>";
             echo "<td><a href='?r=chitiethoadon&id=" . $item['Id'] . "'>Chi Tiết</a></td>";
             echo "</tr>";
             $tong += $item['Total'];
@@ -44,7 +44,7 @@ include_once('views/shares/header.php');
         <p>
         <h3>Tổng: </h3>
         <h2 class="fw-bold">
-          <?php echo $tong . " VND"; ?>
+          <?php echo currency_format($tong); ?>
         </h2>
         </p>
       </div>

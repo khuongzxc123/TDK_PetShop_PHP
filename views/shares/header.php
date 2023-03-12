@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!function_exists('currency_format')) {
+  function currency_format($number, $suffix = 'đ') {
+      if (!empty($number)) {
+          return number_format($number, 0, ',', '.') . "{$suffix}";
+      }
+  }
+}
+?>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -40,7 +48,7 @@
 </head>
 
 <body>
-
+  
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
