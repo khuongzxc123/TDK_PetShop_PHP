@@ -65,5 +65,15 @@ class CartController
     {
         require_once('views/product/cart.php');
     }
+
+    function addDiaChi(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_SESSION['diachi']=$_POST['diachi'];
+            echo "<script> alert('Xác nhận đại chỉ thành công'); </script>";
+            Header("Refresh: 0; url='?r=viewCart'");
+        }else{
+            header('Location: ?r=viewCart');
+        }
+    }
 }
 ?>

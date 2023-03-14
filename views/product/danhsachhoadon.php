@@ -20,6 +20,7 @@ include_once('views/shares/header.php');
             <th scope="col">Id</th>
             <th scope="col">Người Mua</th>
             <th scope="col">Ngày Mua</th>
+            <th scope="col">Nơi Giao</th>
             <th scope="col">Tổng</th>
             <th scope="col">Details</th>
           </tr>
@@ -32,6 +33,7 @@ include_once('views/shares/header.php');
             echo "<th scope='row'>" . $item['Id'] . "</th>";
             echo "<td scope='row'>" . $item['FullName'] . "</td>";
             echo "<td scope='row'>" . $item['Day'] . "</td>";
+            echo "<td scope='row'>" . $item['Address'] . "</td>";
             echo "<td scope='row'>" . currency_format($item['Total']) . "</td>";
             echo "<td><a href='?r=chitiethoadon&id=" . $item['Id'] . "'>Chi Tiết</a></td>";
             echo "</tr>";

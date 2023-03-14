@@ -70,6 +70,11 @@ $routes = [
         'controller' => 'HoaDonController',
         'action' => 'chitiethoadon',
         'middleware' => 'auth'
+    ],
+    'addDiaChi' => [
+        'controller' => 'CartController',
+        'action' => 'addDiaChi',
+        'middleware' => 'auth'
     ]
 ];
 ?>

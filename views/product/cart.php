@@ -1,6 +1,6 @@
 <?php
 include_once('views/shares/header.php');
-session_start();
+
 ?>
 <main id="main" class="main">
     <div class="pagetitle">
@@ -48,6 +48,15 @@ session_start();
 
                         ?>
                 </table>
+                <form action="?r=addDiaChi" method="post">
+                    <div class="col-md-8">
+                        <h2>Địa Chỉ</h2>
+                        <input type="text" name="diachi" id="diachi" class="form-control" value="<?php if(isset($_SESSION['diachi'])){echo $_SESSION['diachi'];} ?>" required>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Xác Nhận</button>
+
+                    </div>
+                </form>
+                
                 <div class="text-end ">
                     <p>
                     <h3>Thành Tiền: </h3>

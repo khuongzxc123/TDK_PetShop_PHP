@@ -12,28 +12,34 @@ class HoaDonController
     }
     function thanhtoan()
     {
-        if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-            $hoaDonId = uniqid();
-            $total = $_GET['total'];
-            $day = date("Y-m-d H:i:s");
-            $userId = $_SESSION['userId'];
-            $isAddHD = $this->model->addHoaDon($hoaDonId, $day, $userId, $total);
-            if ($isAddHD) {
-                foreach ($_SESSION['giohang'] as $item) {
-                    $isAddCTHD = $this->model->addCTHD($hoaDonId, $item[0], $item[3]);
-                    $isGiam = $this->model->giamSLProduct($item[0], $item[3]);
+        if(isset($_SESSION['diachi']) && $_SESSION['diachi']!=""){
+            if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                $hoaDonId = uniqid();
+                $total = $_GET['total'];
+                $day = date("Y-m-d H:i:s");
+                $userId = $_SESSION['userId'];
+                $diaChi = $_SESSION['diachi'];
+                $isAddHD = $this->model->addHoaDon($hoaDonId, $day, $userId, $total, $diaChi);
+                if ($isAddHD) {
+                    foreach ($_SESSION['giohang'] as $item) {
+                        $isAddCTHD = $this->model->addCTHD($hoaDonId, $item[0], $item[3]);
+                        $isGiam = $this->model->giamSLProduct($item[0], $item[3]);
+                    }
+                    if ($isAddCTHD && $isGiam) {
+                        unset($_SESSION['giohang']);
+                        echo "<script>alert('Thanh toán thành công');</script>";
+                        Header("Refresh: 0; url='?r=/'");
+                    }
                 }
-                if ($isAddCTHD && $isGiam) {
-                    unset($_SESSION['giohang']);
-                    echo "<script>alert('Thanh toán thành công');</script>";
-                    Header("Refresh: 0; url='?r=/'");
-                }
+            } else {
+                echo "<script>alert('Không có sản phẩm nào để thanh toán');</script>";
+                Header("Refresh: 0; url='?r=/'");
             }
-        } else {
-            echo "<script>alert('Không có sản phẩm nào để thanh toán');</script>";
-            Header("Refresh: 0; url='?r=/'");
         }
-
+        else{
+            echo "<script>alert('Vui lòng xác nhận địa chỉ');</script>";
+            Header("Refresh: 0; url='?r=viewCart'");
+        }
     }
 
     function hoadon()

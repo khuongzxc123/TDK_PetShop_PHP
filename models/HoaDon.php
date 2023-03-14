@@ -8,15 +8,16 @@ class HoaDon
     {
         $this->db = $pdo;
     }
-    function addHoaDon($hoaDonId, $day, $userId, $total)
+    function addHoaDon($hoaDonId, $day, $userId, $total, $diaChi)
     {
-        $stmt = $this->db->prepare("INSERT INTO hoadon(Id,Day,UserId,Total) VALUES (:id,:day,:userid,:total)");
+        $stmt = $this->db->prepare("INSERT INTO hoadon(Id,Day,UserId,Total,Address) VALUES (:id,:day,:userid,:total,:diachi)");
         return $stmt->execute(
             array(
                 ':id' => $hoaDonId,
                 ':day' => $day,
                 ':userid' => $userId,
-                ':total' => $total
+                ':total' => $total,
+                ':diachi' => $diaChi
             )
         );
     }
@@ -44,7 +45,7 @@ class HoaDon
     }
     function getAllHoaDon()
     {
-        $stmt = $this->db->prepare("SELECT hoadon.Id, hoadon.Day, hoadon.Total, user.FullName
+        $stmt = $this->db->prepare("SELECT hoadon.Id, hoadon.Day, hoadon.Total, user.FullName, hoadon.Address
             FROM hoadon INNER JOIN user
             ON hoadon.UserId = user.Id");
         $stmt->execute();
