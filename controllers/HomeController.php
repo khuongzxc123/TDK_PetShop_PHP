@@ -15,7 +15,7 @@ class HomeController
         $sanPham = $this->model->getAllProduct();
         require_once('views/home.php');
     }
-
+    
 
 }
 ?>

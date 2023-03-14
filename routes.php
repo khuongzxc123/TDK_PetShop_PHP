@@ -75,6 +75,27 @@ $routes = [
         'controller' => 'CartController',
         'action' => 'addDiaChi',
         'middleware' => 'auth'
+    ],
+    'sendMail' => [
+        'controller' => 'MailController',
+        'action' => 'sendMail'
+    ],
+    'email' => [
+        'controller' => 'AccountController',
+        'action' => 'email',
+        'middleware' => 'auth'
+    ],
+    'xacthuc' => [
+        'controller' => 'AccountController',
+        'action' => 'xacthuc'
+    ],
+    'forgotPass' => [
+        'controller' => 'AccountController',
+        'action' => 'forgotPass'
+    ],
+    'nhaptoken' => [
+        'controller' => 'AccountController',
+        'action' => 'nhaptoken'
     ]
 ];
 ?>
