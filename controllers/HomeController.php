@@ -12,10 +12,21 @@ class HomeController
 
     function index()
     {
-        $sanPham = $this->model->getAllProduct();
-        require_once('views/home.php');
-    }
-    
+        $category = $this->model->getAllCategory();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST['loai']) && $_POST['loai'] != "-1") {
+                $loai = $_POST['loai'];
+                $sanPham = $this->model->getAllProductCategory($loai);
+                require_once('views/home.php');
+            } else {
+                $sanPham = $this->model->getAllProduct();
+                require_once('views/home.php');
+            }
+        } else {
+            $sanPham = $this->model->getAllProduct();
+            require_once('views/home.php');
+        }
 
+    }
 }
 ?>

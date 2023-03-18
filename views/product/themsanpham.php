@@ -26,6 +26,16 @@ include_once('views/shares/header.php');
       <p>Đơn Vị</p>
       <input type="text" name="donvi" id="donvi" class="form-control" required>
     </div>
+    <div class="row ">
+      <label>Loại</label>
+      <div class="col-sm-2" style ="margin-top:10px;">
+        <select class="form-select" aria-label="Default select example" name="loai">
+          <?php foreach($category as $item){ ?>
+          <option value="<?php echo $item['Id']; ?>"><?php echo $item['CateName']; ?></option>
+          <?php } ?>
+        </select>
+      </div>
+    </div>
     <br>
     <div class="col-md-9">
       <p>Hình Ảnh</p>

@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 if (!function_exists('currency_format')) {
-  function currency_format($number, $suffix = 'đ') {
-      if (!empty($number)) {
-          return number_format($number, 0, ',', '.') . "{$suffix}";
-      }
+  function currency_format($number, $suffix = 'đ')
+  {
+    if (!empty($number)) {
+      return number_format($number, 0, ',', '.') . "{$suffix}";
+    }
   }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -42,8 +44,9 @@ if (!function_exists('currency_format')) {
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
-  
+
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -109,12 +112,12 @@ if (!function_exists('currency_format')) {
               </li>
             </ul><!-- End Profile Dropdown Items -->
           </li>
-        <?php
+          <?php
         } else {
           ?>
           <a href="?r=login" style="margin-right: 20px;"><button type="button"
               class="btn btn-primary rounded-pill">Login</button></a>
-        <?php
+          <?php
         }
         ?><!-- End Profile Nav -->
 
@@ -132,7 +135,7 @@ if (!function_exists('currency_format')) {
         if ($_SESSION['roleId'] == 1) {
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="?r=themsanpham" id="dangky">
+            <a class="nav-link collapsed" href="?r=themsanpham" id="dangky">
               <i class="bi bi-journal-text"></i>
               <span>Thêm sản phẩm</span>
             </a>
@@ -155,7 +158,7 @@ if (!function_exists('currency_format')) {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?r=hoadon" id="hoadon">
+            <a class="nav-link collapsed" href="?r=hoadon" id="hoadon">
               <i class="bi bi-journal-text"></i>
               <span>Danh Sách Hóa Đơn</span>
             </a>

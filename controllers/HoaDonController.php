@@ -12,6 +12,7 @@ class HoaDonController
     }
     function thanhtoan()
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         if(isset($_SESSION['diachi']) && $_SESSION['diachi']!=""){
             if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                 $hoaDonId = uniqid();

@@ -14,15 +14,18 @@ class ProductController
 
   function themsanpham()
   {
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $loai = $_POST['loai'];
       $name = $_POST['name'];
       $gia = $_POST['gia'];
       $donvi = $_POST['donvi'];
       $newImageName = $this->img->uploadImage($_FILES["image"], 'assets/img/products/');
-      $this->model->addProduct($name, $gia, $newImageName, $donvi);
+      $this->model->addProduct($name, $gia, $newImageName, $donvi, $loai);
       echo "<script>alert('Thêm sản phẩm thành công');</script>";
       Header("Refresh: 0; url='?r=danhsachsanpham'");
     } else {
+      $category = $this->model->getAllCategory();
       require_once('views/product/themsanpham.php');
     }
   }
@@ -33,10 +36,12 @@ class ProductController
   }
   function editsanpham()
   {
+    $category = $this->model->getAllCategory();
     $Id = $_GET['id'];
     if (isset($Id)) {
       $product = $this->model->find($Id);
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $Category = $_POST['loai'];
         $Name = $_POST['name'];
         $Unit = $_POST['unit'];
         $Price = $_POST['price'];

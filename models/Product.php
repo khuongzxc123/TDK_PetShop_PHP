@@ -8,22 +8,34 @@ class Product
     {
         $this->db = $pdo;
     }
-    function addProduct($name, $gia, $temp, $donvi)
+    function addProduct($name, $gia, $temp, $donvi, $loai)
     {
-        $stmt = $this->db->prepare("INSERT INTO product(Name,Price,Image,Unit) VALUES (:name,:price,:temp,:donvi)");
+        $stmt = $this->db->prepare("INSERT INTO product(Name,Price,Image,Unit,CategoryId) VALUES (:name,:price,:temp,:donvi,:loai)");
         $stmt->execute(
             array(
                 ':name' => $name,
                 ':price' => $gia,
                 ':temp' => $temp,
-                ':donvi' => $donvi
+                ':donvi' => $donvi,
+                ':loai' => $loai
             )
         );
     }
 
     function getAllProduct()
     {
-        $stmt = $this->db->prepare("select * from product");
+        $stmt = $this->db->prepare("SELECT product.Id, product.Name, product.Price, product.Image, product.Unit, category.CateName, product.Quantity
+            FROM product INNER JOIN category
+            ON product.CategoryId = category.Id");
+        $stmt->execute();
+        $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $danhSach;
+    }
+    
+    function getAllProductCategory($category)
+    {
+        $stmt = $this->db->prepare("select * from product where CategoryId=:c");
+        $stmt->bindParam(':c', $category);
         $stmt->execute();
         $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $danhSach;
@@ -50,6 +62,13 @@ class Product
                 ':price' => $Price
             )
         );
+    }
+
+    function getAllCategory(){
+        $stmt = $this->db->prepare("select * from category");
+        $stmt->execute();
+        $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $danhSach;
     }
 }
 ?>

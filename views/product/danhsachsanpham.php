@@ -22,6 +22,7 @@ include_once('views/shares/header.php');
             <th scope="col">Giá</th>
             <th scope="col">Số Lượng</th>
             <th scope="col">Đơn Vị</th>
+            <th scope="col">Loại</th>
             <th scope="col">Hình Ảnh</th>
             <th scope="col">Settings</th>
           </tr>
@@ -35,6 +36,7 @@ include_once('views/shares/header.php');
             echo "<td scope='row'>" . currency_format($item['Price']) . "</td>";
             echo "<td scope='row'>" . $item['Quantity'] . "</td>";
             echo "<td scope='row'>" . $item['Unit'] . "</td>";
+            echo "<td scope='row'>" . $item['CateName'] . "</td>";
             echo "<td scope='row'><img src='assets/img/products/" . $item['Image'] . "' style='width: 70px; height: 70px'></td>";
             echo "<td><a href='?r=editsanpham&id=" . $item['Id'] . "'>EDIT</a></td>";
             echo "</tr>";
