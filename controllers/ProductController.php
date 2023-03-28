@@ -102,7 +102,6 @@ class ProductController
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id = $_GET['id'];
       $name = $_POST['loai'];
-
       $isUpdate = $this->model->editCategory($id, $name);
       if ($isUpdate) {
         echo "<script>alert('Edit sản phẩm thành công');</script>";

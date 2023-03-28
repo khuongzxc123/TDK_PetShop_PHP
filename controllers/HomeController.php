@@ -29,5 +29,13 @@ class HomeController
         }
 
     }
+    function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $name = $_POST['searchName'];
+            $sanPham = $this->model->search($name);
+            require_once('views/home.php');
+        }
+    }
 }
 ?>

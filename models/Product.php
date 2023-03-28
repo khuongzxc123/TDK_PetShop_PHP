@@ -95,5 +95,11 @@ class Product
             )
         );
     }
+    function search($name){
+        $stmt = $this->db->prepare("select * from product where Name like '%$name%'");
+        $stmt->execute();
+        $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $danhSach;
+    }
 }
 ?>
