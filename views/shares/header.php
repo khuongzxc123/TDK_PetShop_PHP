@@ -64,26 +64,6 @@ if (!function_exists('currency_format')) {
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
-
-   
-      <div class="nav-item">
-        <a href="?r=viewCart" class="nav-link nav-icon">
-          <i class="bi bi-basket-fill"></i>
-          <span class="badge bg-primary badge-number">
-            <?php
-            if (isset($_SESSION['giohang'])) {
-              echo count($_SESSION['giohang']);
-            } else {
-              echo 0;
-            } ?>
-          </span>
-        </a>
-      </div>
-      <div class="nav-item" style="margin-left: 10px;">
-        <button onclick="location.href='?r=hoadonuser'" class="btn btn-primary">Lịch sử mua hàng</button>
-      </div>
-
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <?php
@@ -191,5 +171,23 @@ if (!function_exists('currency_format')) {
           </li>
         <?php }
       } ?>
+      <li class="nav-item">
+        <a href="?r=viewCart" class="nav-link nav-icon collapsed">
+          <i class="bi bi-basket"></i>
+          <span>Giỏ hàng</span>
+            <?php
+            if (isset($_SESSION['giohang'])&&count($_SESSION['giohang'])>0) {
+              echo "<span class='badge bg-primary badge-number' style='margin-left: 5px'>".count($_SESSION['giohang'])."</span>";
+            }
+            ?>
+          
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="?r=hoadonuser" class="nav-link nav-icon collapsed">
+          <i class="ri-bill-line"></i>
+          <span>Lịch sử mua hàng</span>
+        </a>
+      </li>
     </ul>
   </aside><!-- End Sidebar-->

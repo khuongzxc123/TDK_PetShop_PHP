@@ -60,6 +60,20 @@ class CartController
         }
 
     }
+    function updateCart(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = $_POST['id'];
+            $sl = $_POST['soluong'];
+            $i = 0;
+            foreach ($_SESSION['giohang'] as $item) {
+                if ($item[0] == $id) {
+                    $_SESSION['giohang'][$i][3] = $sl;
+                }
+                $i++;
+            }
+            header('Location: ?r=viewCart');
+        }
+    }
 
     function viewCart()
     {

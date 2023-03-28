@@ -31,37 +31,44 @@ $routes = [
     'themsanpham' => [
         'controller' => 'ProductController',
         'action' => 'themsanpham',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'addcategory' => [
         'controller' => 'ProductController',
         'action' => 'addcategory',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'editsanpham' => [
         'controller' => 'ProductController',
         'action' => 'editsanpham',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'editCategory' => [
         'controller' => 'ProductController',
         'action' => 'editCategory',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'danhsachsanpham' => [
         'controller' => 'ProductController',
         'action' => 'danhsachsanpham',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'danhsachAccount' => [
         'controller' => 'AccountController',
         'action' => 'danhsachAccount',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'listcategory' => [
         'controller' => 'ProductController',
         'action' => 'listcategory',
-        'middleware' => 'auth'
+        'middleware' => 'auth',
+        'admin' => 'admin'
     ],
     'addCart' => [
         'controller' => 'CartController',
@@ -70,6 +77,10 @@ $routes = [
     'delCart' => [
         'controller' => 'CartController',
         'action' => 'delCart'
+    ],
+    'updateCart' => [
+        'controller' => 'CartController',
+        'action' => 'updateCart'
     ],
     'viewCart' => [
         'controller' => 'CartController',

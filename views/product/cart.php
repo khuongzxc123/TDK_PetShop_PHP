@@ -32,31 +32,37 @@ include_once('views/shares/header.php');
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        foreach ($_SESSION['giohang'] as $item) {
-
-                            echo "<tr>";
-                            echo "<th scope='row'>" . $item[1] . "</th>";
-                            echo "<td scope='row'>" . currency_format($item[2]) . "</td>";
-                            echo "<td scope='row'>" . $item[3] . "</td>";
-                            echo "<td scope='row'>" . currency_format($item[3] * $item[2]) . "</td>";
-                            echo "<td scope='row'><img src='assets/img/products/" . $item[4] . "' style='width: 70px; height: 70px'></td>";
-                            echo "<td><a href='?r=delCart&id=" . $item[0] . "'>Xóa</a></td>";
-                            echo "</tr>";
-                            $tong += ($item[3] * $item[2]);
-                        }
-
-                        ?>
+                        
+                            <?php
+                            foreach ($_SESSION['giohang'] as $item) {
+                                echo "<form action='?r=updateCart' method='post'>";
+                                echo "<tr>";
+                                echo "<th scope='row'>" . $item[1] . "</th>";
+                                echo "<td scope='row'>" . currency_format($item[2]) . "</td>";
+                                echo "<td scope='row'><input type='number' name='soluong' id='soluong' class='form-control' value='". $item[3] ."' required></td>";
+                                echo "<td scope='row'>" . currency_format($item[3] * $item[2]) . "</td>";
+                                echo "<td scope='row'><img src='assets/img/products/" . $item[4] . "' style='width: 70px; height: 70px'></td>";
+                                echo "<td><a class='btn btn-danger' href='?r=delCart&id=" . $item[0] . "'>Xóa</a></td>";
+                                echo "<input type='hidden' name='id' id='id' class='form-control' value='".$item[0]."'>";
+                                echo "<td><button class='btn btn-primary' type='submit'>Cập nhật</button></td>";
+                                echo "</tr></form>";
+                                $tong += ($item[3] * $item[2]);
+                            }
+                            ?>
+                        
                 </table>
                 <form action="?r=addDiaChi" method="post">
                     <div class="col-md-8">
                         <h2>Địa Chỉ</h2>
-                        <input type="text" name="diachi" id="diachi" class="form-control" value="<?php if(isset($_SESSION['diachi'])){echo $_SESSION['diachi'];} ?>" required>
+                        <input type="text" name="diachi" id="diachi" class="form-control"
+                            value="<?php if (isset($_SESSION['diachi'])) {
+                                echo $_SESSION['diachi'];
+                            } ?>" required>
                         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Xác Nhận</button>
 
                     </div>
                 </form>
-                
+
                 <div class="text-end ">
                     <p>
                     <h3>Thành Tiền: </h3>
