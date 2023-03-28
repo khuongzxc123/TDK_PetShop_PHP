@@ -16,6 +16,7 @@ class HomeController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['loai']) && $_POST['loai'] != "-1") {
                 $loai = $_POST['loai'];
+                $getcategory = $this->model->findCategory($loai);
                 $sanPham = $this->model->getAllProductCategory($loai);
                 require_once('views/home.php');
             } else {

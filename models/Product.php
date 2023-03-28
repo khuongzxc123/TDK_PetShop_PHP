@@ -70,5 +70,30 @@ class Product
         $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $danhSach;
     }
+    function findCategory($id){
+        $sql = "SELECT * FROM category WHERE Id=:id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    function addCategory($name){
+        $stmt = $this->db->prepare("INSERT INTO category(CateName) VALUES (:name)");
+        return $stmt->execute(
+            array(
+                ':name' => $name
+            )
+        );
+    }
+    function editCategory($id, $name){
+        $sql = "UPDATE category SET CateName=:name WHERE Id=:id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute(
+            array(               
+                ':id' => $id,
+                ':name' => $name,
+            )
+        );
+    }
 }
 ?>

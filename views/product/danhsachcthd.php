@@ -46,9 +46,6 @@ include_once('views/shares/header.php');
 
           ?>
       </table>
-      <div class="text-center">
-        <button onclick="location.href='?r=hoadon'" class="btn btn-primary">Quay Lại</button>
-      </div>
       </tbody>
     </div>
   </div>

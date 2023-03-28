@@ -24,13 +24,14 @@ CREATE TABLE IF NOT EXISTS `category` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `CateName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tdk_petshop.category: ~0 rows (approximately)
+-- Dumping data for table tdk_petshop.category: ~2 rows (approximately)
 DELETE FROM `category`;
 INSERT INTO `category` (`Id`, `CateName`) VALUES
 	(1, 'Chó'),
-	(2, 'Mèo');
+	(2, 'Mèo'),
+	(3, 'Chuột');
 
 -- Dumping structure for table tdk_petshop.chitiethoadon
 CREATE TABLE IF NOT EXISTS `chitiethoadon` (
@@ -45,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `chitiethoadon` (
   CONSTRAINT `chitiethoadon_ibfk_3` FOREIGN KEY (`HoaDonId`) REFERENCES `hoadon` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tdk_petshop.chitiethoadon: ~8 rows (approximately)
+-- Dumping data for table tdk_petshop.chitiethoadon: ~18 rows (approximately)
 DELETE FROM `chitiethoadon`;
 INSERT INTO `chitiethoadon` (`Id`, `HoaDonId`, `ProductId`, `Quantity`) VALUES
 	(13, '640d682e00835', 1, 3),
@@ -80,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `hoadon` (
   CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tdk_petshop.hoadon: ~2 rows (approximately)
+-- Dumping data for table tdk_petshop.hoadon: ~5 rows (approximately)
 DELETE FROM `hoadon`;
 INSERT INTO `hoadon` (`Id`, `Day`, `UserId`, `Total`, `Address`) VALUES
 	('640d682e00835', '2023-03-12 05:50:38', 1, 1260000, '100 Bùi Viện'),
@@ -103,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `category` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tdk_petshop.product: ~7 rows (approximately)
+-- Dumping data for table tdk_petshop.product: ~8 rows (approximately)
 DELETE FROM `product`;
 INSERT INTO `product` (`Id`, `Name`, `Price`, `Image`, `Quantity`, `Unit`, `CategoryId`) VALUES
 	(1, 'Benefits', 100000, '6404d04f85384.jpg', 90, 'Hộp', 1),

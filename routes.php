@@ -29,9 +29,19 @@ $routes = [
         'action' => 'themsanpham',
         'middleware' => 'auth'
     ],
+    'addcategory' => [
+        'controller' => 'ProductController',
+        'action' => 'addcategory',
+        'middleware' => 'auth'
+    ],
     'editsanpham' => [
         'controller' => 'ProductController',
         'action' => 'editsanpham',
+        'middleware' => 'auth'
+    ],
+    'editCategory' => [
+        'controller' => 'ProductController',
+        'action' => 'editCategory',
         'middleware' => 'auth'
     ],
     'danhsachsanpham' => [
@@ -42,6 +52,11 @@ $routes = [
     'danhsachAccount' => [
         'controller' => 'AccountController',
         'action' => 'danhsachAccount',
+        'middleware' => 'auth'
+    ],
+    'listcategory' => [
+        'controller' => 'ProductController',
+        'action' => 'listcategory',
         'middleware' => 'auth'
     ],
     'addCart' => [
@@ -64,6 +79,11 @@ $routes = [
     'hoadon' => [
         'controller' => 'HoaDonController',
         'action' => 'hoadon',
+        'middleware' => 'auth'
+    ],
+    'hoadonuser' => [
+        'controller' => 'HoaDonController',
+        'action' => 'hoadonuser',
         'middleware' => 'auth'
     ],
     'chitiethoadon' => [

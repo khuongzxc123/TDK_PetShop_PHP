@@ -14,7 +14,7 @@ class ProductController
 
   function themsanpham()
   {
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $loai = $_POST['loai'];
       $name = $_POST['name'];
@@ -71,6 +71,50 @@ class ProductController
 
     } else {
       echo "NOT FOUND!!!";
+    }
+  }
+
+  function listcategory()
+  {
+    $category = $this->model->getAllCategory();
+    require_once('views/product/categorylist.php');
+  }
+
+  function addcategory()
+  {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $name = $_POST['name'];
+      $isAdd = $this->model->addCategory($name);
+      if ($isAdd) {
+        echo "<script>alert('Thêm loại sản phẩm thành công');</script>";
+        Header("Refresh: 0; url='?r=listcategory'");
+      } else {
+        echo "<script>alert('Thêm loại sản phẩm thất bại');</script>";
+        Header("Refresh: 0; url='?r=addcategory'");
+      }
+    } else {
+      require_once('views/product/addcategory.php');
+    }
+  }
+
+  function editCategory()
+  {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id = $_GET['id'];
+      $name = $_POST['loai'];
+
+      $isUpdate = $this->model->editCategory($id, $name);
+      if ($isUpdate) {
+        echo "<script>alert('Edit sản phẩm thành công');</script>";
+        Header("Refresh: 0; url='?r=listcategory'");
+      } else {
+        echo "<script>alert('Thêm loại sản phẩm thất bại');</script>";
+        Header("Refresh: 0; url='?r=addcategory'");
+      }
+    } else {
+      $id = $_GET['id'];
+      $category = $this->model->findCategory($id);
+      require_once('views/product/editcategory.php');
     }
   }
 }

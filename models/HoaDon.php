@@ -52,6 +52,18 @@ class HoaDon
         $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $danhSach;
     }
+
+    function getUserHoaDon($userId){
+        $stmt = $this->db->prepare("SELECT hoadon.Id, hoadon.Day, hoadon.Total, user.FullName, hoadon.Address
+            FROM hoadon INNER JOIN user
+            ON hoadon.UserId = user.Id
+            WHERE hoadon.UserId=:id");
+        $stmt->execute(array(
+            ':id' => $userId,
+        ));
+        $danhSach = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $danhSach;
+    }
     function getCTHD($hoaDonId)
     {
         $stmt = $this->db->prepare("SELECT chitiethoadon.Quantity, product.Name, product.Image, Product.Price

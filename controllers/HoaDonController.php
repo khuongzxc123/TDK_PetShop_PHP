@@ -49,6 +49,13 @@ class HoaDonController
         require_once('views/product/danhsachhoadon.php');
     }
 
+    function hoadonuser()
+    {
+        $userId = $_SESSION['userId'];
+        $danhSachHoaDon = $this->model->getUserHoaDon($userId);
+        require_once('views/product/danhsachhoadon.php');
+    }
+
     function chitiethoadon()
     {
         $hoaDonId = $_GET['id'];

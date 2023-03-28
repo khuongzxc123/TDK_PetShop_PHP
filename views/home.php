@@ -29,7 +29,7 @@ include_once('views/shares/header.php');
       </div>
     </form>
       <div class="row">
-        <?php foreach ($sanPham as $item) { ?>
+        <?php if(count($sanPham)>0){foreach ($sanPham as $item) { ?>
           <div class="col-xs-4 col-md-4">
             <form action="?r=addCart" method="post">
               <div class="prod-info-main prod-wrap clearfix">
@@ -72,7 +72,7 @@ include_once('views/shares/header.php');
               </div>
             </form>
           </div>
-        <?php } ?>
+        <?php }}else{ echo "<h3>Không có sản phẩm nào loại ".$getcategory['CateName']."</h3>";} ?>
       </div>
   </div>
 </main>

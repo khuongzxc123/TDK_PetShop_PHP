@@ -64,9 +64,24 @@ if (!function_exists('currency_format')) {
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
-    <div class="icon">
-      <a href="?r=viewCart" class="bi bi-basket-fill"></a>
-    </div>
+
+   
+      <div class="nav-item">
+        <a href="?r=viewCart" class="nav-link nav-icon">
+          <i class="bi bi-basket-fill"></i>
+          <span class="badge bg-primary badge-number">
+            <?php
+            if (isset($_SESSION['giohang'])) {
+              echo count($_SESSION['giohang']);
+            } else {
+              echo 0;
+            } ?>
+          </span>
+        </a>
+      </div>
+      <div class="nav-item" style="margin-left: 10px;">
+        <button onclick="location.href='?r=hoadonuser'" class="btn btn-primary">Lịch sử mua hàng</button>
+      </div>
 
 
     <nav class="header-nav ms-auto">
@@ -135,9 +150,15 @@ if (!function_exists('currency_format')) {
         if ($_SESSION['roleId'] == 1) {
           ?>
           <li class="nav-item">
-            <a class="nav-link collapsed" href="?r=themsanpham" id="dangky">
+            <a class="nav-link collapsed" href="?r=themsanpham" id="themsanpham">
               <i class="bi bi-journal-text"></i>
               <span>Thêm sản phẩm</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="?r=addcategory" id="addcategory">
+              <i class="bi bi-journal-text"></i>
+              <span>Thêm loại thú cưng</span>
             </a>
           </li>
           <li class="nav-item">
@@ -148,6 +169,11 @@ if (!function_exists('currency_format')) {
               <li class="nav-item">
                 <a class="nav-link collapsed" href="?r=danhsachsanpham" id="danhsachProduct">
                   <i class="bi bi-circle"></i><span>Sản Phẩm</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="?r=listcategory" id="categorylist">
+                  <i class="bi bi-circle"></i><span>Loại sản phẩm</span>
                 </a>
               </li>
               <li class="nav-item">
