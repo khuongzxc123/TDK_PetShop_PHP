@@ -20,10 +20,10 @@ class MailController
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
         $mail->Host = "smtp.gmail.com";
-        $mail->Username = "khuongzxc123@gmail.com";
-        $mail->Password = "pkvjuooimpifskzv"; //pkvjuooimpifskzv
+        $mail->Username = "hugoloc1003@gmail.com";
+        $mail->Password = "gpzbnwxemxscljwr";
 
-        $form= "khuongzxc123@gmail.com" ;
+        $form= "hugoloc1003@gmail.com" ;
         $formName = "TDK_PetShop";
         $to= $email;
         $name= $email ; 
