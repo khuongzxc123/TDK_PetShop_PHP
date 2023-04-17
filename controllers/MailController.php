@@ -20,8 +20,8 @@ class MailController
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
         $mail->Host = "smtp.gmail.com";
-        $mail->Username = "hugoloc1003@gmail.com";
-        $mail->Password = "gpzbnwxemxscljwr";
+        $mail->Username = "dangthanhle206@gmail.com";
+        $mail->Password = "xnmlbpqdqdrwwceq";
 
         $form= "hugoloc1003@gmail.com" ;
         $formName = "TDK_PetShop";
@@ -34,8 +34,6 @@ class MailController
         $mail->IsHTML(true);
         $mail->AddAddress($to, $name);
         $mail->SetFrom($form, $formName);
-        // $mail->AddReplyTo("reply-to-email@domain", "reply-to-name");
-        // $mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");
         $mail->Subject = $subject;
         $mail->MsgHTML($message);
         if (!$mail->Send()) {

@@ -75,7 +75,7 @@ include_once('views/shares/header.php');
           </div>
         <?php }
       } else {
-        echo "<h3>Không có sản phẩm nào loại " . $getcategory['CateName'] . "</h3>";
+        echo "<h3>Không có sản phẩm nào </h3>";
       } ?>
     </div>
   </div>
